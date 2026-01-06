@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carnicería El Buen Filete </title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#111;
+  color:#fff
+}
+
+header{
+  position:relative;
+  height:60vh;
+  background:url('imagenes/carnes a la parrilla varios .png') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.6)
+}
+
+header .content{position:relative;z-index:2}
+
+h1{font-size:3rem;margin:0;color:#ffcc00}
+h2{font-size:2rem;margin:0}
+
+section{padding:1rem}
+
+/* GRID RESPONSIVE */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:1rem
+}
+
+.card{
+  background:#1c1c1c;
+  border-radius:12px;
+  padding:1rem;
+  text-align:center
+}
+
+/* TODAS LAS IMÁGENES IGUALES */
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px
+}
+
+.price{
+  font-size:1.4rem;
+  color:#00ff88;
+  margin:.5rem 0
+}
+
+input{
+  width:80%;
+  padding:.5rem;
+  font-size:1.1rem;
+  border-radius:8px;
+  border:none;
+  text-align:center
+}
+
+button{
+  margin-top:.5rem;
+  padding:.7rem 1rem;
+  border:none;
+  border-radius:10px;
+  background:#ffcc00;
+  font-size:1rem;
+  font-weight:bold;
+  cursor:pointer
+}
+
+#cart{
+  background:#000;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:1rem;
+  border-top:2px solid #ffcc00
+}
+
+#cart p{margin:.3rem 0}
+
+#total{
+  font-size:1.4rem;
+  color:#00ff88
+}
+
+.remove{
+  background:red;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  padding:2px 6px;
+  margin-left:6px;
+  cursor:pointer
+}
+
+.map{
+  width:100%;
+  height:300px;
+  border-radius:12px;
+  overflow:hidden
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="content">
+    <h1>CARNICERÍA</h1>
+    <h2>EL BUEN FILETE</h2>
+  </div>
+</header>
+
+<section>
+<h2>🥩 Carnes de res Seleccione su pedido 🛒             </h2>
+
+
+<div class="products">
+
+<!-- PRODUCTOS -->
+<div class="card"><img src="imagenes/bistec.jpg"><h3>Pulpa Bistec</h3><div class="price">Bs 84 / kg</div><input type="number" min="1" id="p1"><button onclick="addToCart('Pulpa Bistec',84,p1.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/pulpa cuadrado.png"><h3>Pulpa Cuadrado</h3><div class="price">Bs 84 / kg</div><input type="number" min="1" id="p2"><button onclick="addToCart('Pulpa Cuadrado',84,p2.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/cadera cuadril.png"><h3>Pulpa Cadera / Cuadril</h3><div class="price">Bs 86 / kg</div><input type="number" min="1" id="p3"><button onclick="addToCart('Pulpa Cadera',86,p3.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/pulpa paceto.png"><h3>Pulpa Paceto</h3><div class="price">Bs 84 / kg</div><input type="number" min="1" id="p4"><button onclick="addToCart('Pulpa Paceto',84,p4.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/cabeza de lomo.jfif"><h3>Cabeza de Lomo</h3><div class="price">Bs 84 / kg</div><input type="number" min="1" id="p5"><button onclick="addToCart('Cabeza de Lomo',84,p5.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/molida .png"><h3>Carne Molida Especial</h3><div class="price">Bs 74 / kg</div><input type="number" min="1" id="p6"><button onclick="addToCart('Carne Molida Especial',74,p6.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/molida corriente.png"><h3>Molida Corriente</h3><div class="price">Bs 46 / kg</div><input type="number" min="1" id="p7"><button onclick="addToCart('Molida Corriente',46,p7.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/vacio o pollerita .png"><h3>Vacío / Pollerita</h3><div class="price">Bs 68 / kg</div><input type="number" min="1" id="p8"><button onclick="addToCart('Vacío o Pollerita',68,p8.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/punta de s.jfif"><h3>Punta de S</h3><div class="price">Bs 86 / kg</div><input type="number" min="1" id="p9"><button onclick="addToCart('Punta de S',86,p9.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/giba.png"><h3>Giba de Res</h3><div class="price">Bs 64 / kg</div><input type="number" min="1" id="p10"><button onclick="addToCart('Giba de Res',64,p10.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/chuleta de res .png"><h3>Chuleta de Res</h3><div class="price">Bs 66 / kg</div><input type="number" min="1" id="p11"><button onclick="addToCart('Chuleta de Res',66,p11.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/paletilla de res.png"><h3>Chuleta Paletilla</h3><div class="price">Bs 66 / kg</div><input type="number" min="1" id="p12"><button onclick="addToCart('Chuleta Paletilla',66,p12.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/osobuco.png"><h3>Osobuco</h3><div class="price">Bs 64 / kg</div><input type="number" min="1" id="p13"><button onclick="addToCart('Osobuco',64,p13.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/costlla .png"><h3>Costilla de Res</h3><div class="price">Bs 64 / kg</div><input type="number" min="1" id="p14"><button onclick="addToCart('Costilla de Res',64,p14.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/pecho.png"><h3>Pecho de Res</h3><div class="price">Bs 64 / kg</div><input type="number" min="1" id="p15"><button onclick="addToCart('Pecho de Res',64,p15.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/hueso rojo .png"><h3>Hueso Rojo</h3><div class="price">Bs 24 / kg</div><input type="number" min="1" id="p16"><button onclick="addToCart('Hueso Rojo',24,p16.value)">Agregar</button></div>
+
+<div class="card"><img src="imagenes/hueso blanco .png"><h3>Hueso Blanco</h3><div class="price">Bs 14 / kg</div><input type="number" min="1" id="p17"><button onclick="addToCart('Hueso Blanco',14,p17.value)">Agregar</button></div>
+
+</div>
+</section>
+
+<section>
+<h2>📍 Nuestra ubicación  Ciudad de Viacha La Paz/el Alto</h2>
+<div class="map">
+<iframe src="https://www.google.com/maps?q=-16.6465152,-68.2912673&z=17&output=embed" width="100%" height="100%" style="border:0" allowfullscreen></iframe>
+</div>
+</section>
+
+<div id="cart">
+<h3>🛒 Carrito</h3>
+<div id="items"></div>
+<p id="total">Total: Bs 0</p>
+<button onclick="sendWhatsApp()">Finalizar pedido por WhatsApp</button>
+</div>
+
+<script>
+let cart=[];
+
+function addToCart(name,price,kg){
+ if(!kg || kg<=0){ alert('Ingrese kilos'); return; }
+
+ cart.push({id:Date.now(),name,kg:Number(kg),price});
+ renderCart();
+}
+
+function removeItem(id){
+ cart = cart.filter(i=>i.id!==id);
+ renderCart();
+}
+
+function renderCart(){
+ let html='', total=0;
+ cart.forEach(i=>{
+   let sub=i.kg*i.price;
+   total+=sub;
+   html+=`${i.name} - ${i.kg}kg = Bs ${sub}
+   <button class="remove" onclick="removeItem(${i.id})">✖</button><br>`;
+ });
+ document.getElementById('items').innerHTML=html;
+ document.getElementById('total').innerText='Total: Bs '+total;
+}
+
+function sendWhatsApp(){
+ if(cart.length===0){ alert('Carrito vacío'); return; }
+
+ let msg='🛒 Pedido Carnicería El Buen Filete%0A';
+ let total=0;
+ cart.forEach(i=>{
+   let sub=i.kg*i.price;
+   total+=sub;
+   msg+=`${i.name} - ${i.kg}kg = Bs ${sub}%0A`;
+ });
+ msg+=`%0ATOTAL: Bs ${total}`;
+ window.open(`https://wa.me/59165605845?text=${msg}`,'_blank');
+}
+</script>
+
+</body>
+</html>
